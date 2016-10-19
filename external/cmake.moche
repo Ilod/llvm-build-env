@@ -1,0 +1,86 @@
+[Repo]
+    Name                                cmake
+    VersionMin                          3.6.0
+    VersionCheckExecutable              cmake
+    VersionCheckArguments               --version
+    VersionCheckRegex                   ^cmake version ([0-9]+(\.[0-9]+)*)(-.*)?$
+    [Retrieval]
+        Name                            path
+        [Path]
+    [Retrieval]
+        Name                            official-release
+        Version                         3.6.2
+        Branch                          cmake.org
+        [Binary]
+            [Url]
+                [Win32]
+                    Url                 https://cmake.org/files/v3.6/cmake-3.6.2-win32-x86.zip
+                    FolderToExtract     cmake-3.6.2-win32-x86/bin
+                [Win64]
+                    Url                 https://cmake.org/files/v3.6/cmake-3.6.2-win64-x64.zip
+                    FolderToExtract     cmake-3.6.2-win64-x64/bin
+                [Mac]
+                    Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Darwin-x86_64.tar.gz
+                    FolderToExtract     cmake-3.6.2-Darwin-x86_64/bin
+                [Linux32]
+                    Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Linux-i386.tar.gz
+                    FolderToExtract     cmake-3.6.2-Linux-i386/bin
+                [Linux64]
+                    Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Linux-x86_64.tar.gz
+                    FolderToExtract     cmake-3.6.2-Linux-x86_64/bin
+[Tool]
+    Name                                cmake
+    Repo                                cmake
+    Executable                          cmake
+
+[Command]
+    Name                                cmake
+    Tool                                cmake
+    [Invoke]
+        BuiltIn                         pushd
+        [Arguments]
+            Path                        {CmakeBuildPath}
+            CmakeBuildPath              {BuildPath}
+            Create                      true
+    [Invoke]
+        CommandLineArguments            "{CmakeSourcePath}" {if {Is64Bits} -DCMAKE_GENERATOR_PLATFORM=x64} -DCMAKE_BUILD_TYPE {Configuration} {Arguments}
+        [Arguments]
+            Configuration               Release
+            CmakeSourcePath             {SourcePath}
+            Arguments
+    [Invoke]
+        BuiltIn                         popd
+        
+[Command]
+    Name                                cmake-build
+    Tool                                cmake
+    [Invoke]
+        CommandLineArguments            --build {CmakeBuildPath} --config {Configuration}
+        [Arguments]
+            Configuration               Release
+            CmakeBuildPath              {BuildPath}
+        
+[Command]
+    Name                                cmake-tool-build
+    Tool                                cmake
+    [Invoke]
+        BuiltIn                         pushd
+        [Arguments]
+            Path                        {CmakeBuildPath}
+            CmakeBuildPath              {BuildPath}
+            Create                      true
+    [Invoke]
+        Condition                       Initial
+        CommandLineArguments            "{CmakeSourcePath}" {if {Is64Bits} -DCMAKE_GENERATOR_PLATFORM=x64} -DCMAKE_BUILD_TYPE="{Configuration}" -DCMAKE_INSTALL_PREFIX="{CmakeBinaryPath}" {Arguments}
+        [Arguments]
+            Configuration               Release
+            CmakeBinaryPath             {BinaryPath}
+            CmakeSourcePath             {SourcePath}
+            Arguments
+    [Invoke]
+        BuiltIn                         popd
+    [Invoke]
+        CommandLineArguments            --build {CmakeBuildPath} --config {Configuration} --target install
+        [Arguments]
+            Configuration               Release
+            CmakeBuildPath              {BuildPath}

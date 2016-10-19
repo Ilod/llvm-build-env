@@ -1,0 +1,26 @@
+[Repo]
+    Name                                swig
+    VersionMin                          3.0.10
+    VersionCheckExecutable              swig
+    VersionCheckArguments               -version
+    VersionCheckRegex                   ^SWIG Version ([0-9]+(\.[0-9]+)*)$
+    [Retrieval]
+        Name                            path
+        [Path]
+    [Retrieval]
+        Name                            official-release
+        Version                         3.0.10
+        Branch                          swig.org
+        [Binary]
+            [Url]
+                [Win32]
+                    Url                 http://downloads.sourceforge.net/project/swig/swigwin/swigwin-3.0.10/swigwin-3.0.10.zip
+                    FolderToExtract     swigwin-3.0.10
+                [Win64]
+                    Url                 http://downloads.sourceforge.net/project/swig/swigwin/swigwin-3.0.10/swigwin-3.0.10.zip
+                    FolderToExtract     swigwin-3.0.10
+                    
+[Tool]
+    Name                                swig
+    Repo                                swig
+    Executable                          swig

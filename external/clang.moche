@@ -1,0 +1,53 @@
+[Repo]
+    Name                                clang
+    VersionMin                          4.0.0
+    VersionCheckExecutable              clang
+    VersionCheckArguments               --version
+    VersionCheckRegex                   ^clang version ([0-9]+(\.[0-9]+)*)( .*)?$
+    [Build]
+        Command                         cmake-tool-build
+        [Arguments]
+            Arguments                   -DPYTHON_HOME="{function {ToolFolder} python3}" -DLLDB_RELOCATABLE_PYTHON=1 -DSWIG_DIR="{function {ToolFolder} swig}" -DSWIG_EXECUTABLE="{function {ToolPath} swig}"
+    [Build]
+        Command                         copy
+        [Arguments]
+            Source                      {BuildPath}/Release/lib/clang.lib
+            Dest                        {BinaryPath}/lib/clang.lib
+    [Build]
+        Command                         copy
+        [Arguments]
+            Source                      {BinaryPath}/bin/lld.exe
+            Dest                        {BinaryPath}/bin/link.exe
+    BuildVersion                        python_home
+    [Retrieval]
+        Name                            official-git
+        Version                         4.0.0.0
+        Branch                          ilod-plugins
+        [Source]
+            AlwaysUpdate                true
+            Updatable                   true
+            [Command]
+                Command                 git
+                [Arguments]
+                    Url                 https://github.com/Ilod/llvm.git
+            [Command]
+                Command                 git
+                [Arguments]
+                    Url                 https://github.com/Ilod/clang.git
+                    GitSourcePath       {SourcePath}/tools/clang
+            [Command]
+                Command                 git
+                [Arguments]
+                    Url                 https://github.com/Ilod/lldb.git
+                    GitSourcePath       {SourcePath}/tools/lldb
+            [Command]
+                Command                 git
+                [Arguments]
+                    Url                 https://github.com/Ilod/lld.git
+                    GitSourcePath       {SourcePath}/tools/lld
+                    
+[Tool]
+    Name                                clang
+    Repo                                clang
+    Executable                          clang
+    Mandatory                           true
