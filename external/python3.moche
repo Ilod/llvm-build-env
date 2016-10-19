@@ -20,10 +20,8 @@
             [Url]
                 [Win32]
                     Url                 https://www.python.org/ftp/python/3.5.2/python-3.5.2-embed-amd64.zip
-                    FolderToExtract     cmake-3.6.2-win32-x86/bin
                 [Win64]
                     Url                 https://www.python.org/ftp/python/3.5.2/python-3.5.2-embed-win32.zip
-                    FolderToExtract     cmake-3.6.2-win64-x64/bin
                     
 [Tool]
     Name                                python3
