@@ -23,7 +23,7 @@
             Path                        {GitSourcePath}
             Create                      true
     [Invoke]
-        CommandLineArguments            {GitCommand} {Url} {_MayBeDot} {if {Shallow} {if {Initial} --depth 1} }
+        CommandLineArguments            {GitCommand} {Url} {_MayBeDot} {if {Shallow} --depth 1}
         [Arguments]
             GitSourcePath               {SourcePath}
             GitCommand                  {if {Initial} clone}{if not {Initial} pull}
