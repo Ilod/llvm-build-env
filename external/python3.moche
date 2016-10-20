@@ -9,7 +9,6 @@
         [Path]
     [Retrieval]
         Name                            path-root
-        Condition                       IsWindows
         [Path]
             Path                        C:\Python35
     [Retrieval]
@@ -18,9 +17,9 @@
         Branch                          python.org
         [Binary]
             [Url]
-                [Win32]
-                    Url                 https://www.python.org/ftp/python/3.5.2/python-3.5.2-embed-amd64.zip
                 [Win64]
+                    Url                 https://www.python.org/ftp/python/3.5.2/python-3.5.2-embed-amd64.zip
+                [Win32]
                     Url                 https://www.python.org/ftp/python/3.5.2/python-3.5.2-embed-win32.zip
                     
 [Tool]
