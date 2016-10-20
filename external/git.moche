@@ -23,10 +23,11 @@
             Path                        {GitSourcePath}
             Create                      true
     [Invoke]
-        CommandLineArguments            {GitCommand} {Url} {_MayBeDot}
+        CommandLineArguments            {GitCommand} {Url} {_MayBeDot} {if {Shallow} {if {Initial} --depth 1} }
         [Arguments]
             GitSourcePath               {SourcePath}
             GitCommand                  {if {Initial} clone}{if not {Initial} pull}
             _MayBeDot                   {if {Initial} .}
+            Shallow                     false
     [Invoke]
         BuiltIn                         popd
