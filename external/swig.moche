@@ -19,6 +19,18 @@
                 [Win64]
                     Url                 http://downloads.sourceforge.net/project/swig/swigwin/swigwin-3.0.10/swigwin-3.0.10.zip
                     FolderToExtract     swigwin-3.0.10
+    [Retrieval]
+        Name                            ilod-mirror
+        Version                         3.0.10
+        Branch                          ilod.org
+        [Binary]
+            [Url]
+                [Win32]
+                    Url                 http://ilod.org/swigwin-3.0.10.zip
+                    FolderToExtract     swigwin-3.0.10
+                [Win64]
+                    Url                 http://ilod.org/swigwin-3.0.10.zip
+                    FolderToExtract     swigwin-3.0.10
                     
 [Tool]
     Name                                swig
