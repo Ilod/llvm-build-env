@@ -55,7 +55,7 @@
     Name                                cmake-build
     Tool                                cmake
     [Invoke]
-        CommandLineArguments            --build {CmakeBuildPath} --config {Configuration}
+        CommandLineArguments            --build {CmakeBuildPath} --config {Configuration} {if {CmakeTarget} --target {CmakeTarget} }
         [Arguments]
             Configuration               Release
             CmakeBuildPath              {BuildPath}

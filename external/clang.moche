@@ -50,4 +50,3 @@
     Name                                clang
     Repo                                clang
     Executable                          clang
-    Mandatory                           true
