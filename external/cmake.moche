@@ -71,7 +71,7 @@
             Create                      true
     [Invoke]
         Condition                       Initial
-        CommandLineArguments            "{CmakeSourcePath}" {if {Is64Bits} -DCMAKE_GENERATOR_PLATFORM=x64} -DCMAKE_BUILD_TYPE="{Configuration}" -DCMAKE_INSTALL_PREFIX="{CmakeBinaryPath}" -DCMAKE_CXX_FLAGS="${{CMAKE_CXX_FLAGS}} /MP" -DCMAKE_C_FLAGS="${{CMAKE_C_FLAGS}} /MP" {Arguments}
+        CommandLineArguments            "{CmakeSourcePath}" {if {Is64Bits} -DCMAKE_GENERATOR_PLATFORM=x64} -DCMAKE_BUILD_TYPE="{Configuration}" -DCMAKE_INSTALL_PREFIX="{CmakeBinaryPath}" {Arguments}
         [Arguments]
             Configuration               Release
             CmakeBinaryPath             {BinaryPath}
