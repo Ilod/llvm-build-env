@@ -11,16 +11,7 @@
         Name                            path-root
         [Path]
             Path                        C:\Python35
-    [Retrieval]
-        Name                            official-release
-        Version                         3.5.2
-        Branch                          python.org
-        [Binary]
-            [Url]
-                [Win64]
-                    Url                 https://www.python.org/ftp/python/3.5.2/python-3.5.2-embed-amd64.zip
-                [Win32]
-                    Url                 https://www.python.org/ftp/python/3.5.2/python-3.5.2-embed-win32.zip
+            SkipVersionCheck            True
                     
 [Tool]
     Name                                python3
