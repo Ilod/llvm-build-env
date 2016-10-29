@@ -12,11 +12,11 @@
         Version                         3.0.10
         Branch                          swig.org
         [Binary]
-            [Url]
-                [Win32]
+            [File]
+                {Win32}
                     Url                 http://downloads.sourceforge.net/project/swig/swigwin/swigwin-3.0.10/swigwin-3.0.10.zip
                     FolderToExtract     swigwin-3.0.10
-                [Win64]
+                {Win64}
                     Url                 http://downloads.sourceforge.net/project/swig/swigwin/swigwin-3.0.10/swigwin-3.0.10.zip
                     FolderToExtract     swigwin-3.0.10
     [Retrieval]
@@ -24,11 +24,11 @@
         Version                         3.0.10
         Branch                          ilod.org
         [Binary]
-            [Url]
-                [Win32]
+            [File]
+                {Win32}
                     Url                 http://ilod.org/swigwin-3.0.10.zip
                     FolderToExtract     swigwin-3.0.10
-                [Win64]
+                {Win64}
                     Url                 http://ilod.org/swigwin-3.0.10.zip
                     FolderToExtract     swigwin-3.0.10
                     
