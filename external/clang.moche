@@ -7,7 +7,7 @@
     [Build]
         Command                         cmake-tool-build
         [Arguments]
-            Arguments                   -DPYTHON_HOME="{function {ToolFolder} python3}" -DLLDB_RELOCATABLE_PYTHON=1 -DSWIG_DIR="{function {ToolFolder} swig}" -DSWIG_EXECUTABLE="{function {ToolPath} swig}"
+            Arguments                   -DPYTHON_HOME="{function {ToolFolder} python3}" -DPYTHON_EXECUTABLE="{function {ToolPath} python3}" -DLLDB_RELOCATABLE_PYTHON=1 -DSWIG_DIR="{function {ToolFolder} swig}" -DSWIG_EXECUTABLE="{function {ToolPath} swig}"
     [Build]
         Command                         copy
         [Arguments]
