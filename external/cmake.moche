@@ -16,22 +16,23 @@
         Version                         3.6.2
         Branch                          cmake.org
         [Binary]
+            BuildBinarySubFolder        bin
             [File]
                 {Platform} win-x86
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-win32-x86.zip
-                    FolderToExtract     cmake-3.6.2-win32-x86/bin
+                    FolderToExtract     cmake-3.6.2-win32-x86
                 {Platform} win-x64
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-win64-x64.zip
-                    FolderToExtract     cmake-3.6.2-win64-x64/bin
+                    FolderToExtract     cmake-3.6.2-win64-x64
                 {OS} mac
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Darwin-x86_64.tar.gz
-                    FolderToExtract     cmake-3.6.2-Darwin-x86_64/bin
+                    FolderToExtract     cmake-3.6.2-Darwin-x86_64
                 {Platform} linux-x86
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Linux-i386.tar.gz
-                    FolderToExtract     cmake-3.6.2-Linux-i386/bin
+                    FolderToExtract     cmake-3.6.2-Linux-i386
                 {Platform} linux-x64
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Linux-x86_64.tar.gz
-                    FolderToExtract     cmake-3.6.2-Linux-x86_64/bin
+                    FolderToExtract     cmake-3.6.2-Linux-x86_64
     {OS} linux
         [Retrieval]
             Name                        official-source
