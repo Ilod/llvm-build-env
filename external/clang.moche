@@ -8,16 +8,17 @@
         Command                         cmake-tool-build
         [Arguments]
             Arguments                   -DPYTHON_HOME="{function {ToolFolder} python3}" -DPYTHON_EXECUTABLE="{function {ToolPath} python3}" -DLLDB_RELOCATABLE_PYTHON=1 -DSWIG_DIR="{function {ToolFolder} swig}" -DSWIG_EXECUTABLE="{function {ToolPath} swig}"
-    [Build]
-        Command                         copy
-        [Arguments]
-            Source                      {BuildPath}/Release/lib/clang.lib
-            Dest                        {BinaryPath}/lib/clang.lib
-    [Build]
-        Command                         copy
-        [Arguments]
-            Source                      {BinaryPath}/bin/lld.exe
-            Dest                        {BinaryPath}/bin/link.exe
+    {OS} windows
+        [Build]
+            Command                         copy
+            [Arguments]
+                Source                      {BuildPath}/Release/lib/clang.lib
+                Dest                        {BinaryPath}/lib/clang.lib
+        [Build]
+            Command                         copy
+            [Arguments]
+                Source                      {BinaryPath}/bin/lld.exe
+                Dest                        {BinaryPath}/msbuild-bin/link.exe
     BuildVersion                        python_home
     [Retrieval]
         Name                            official-git
