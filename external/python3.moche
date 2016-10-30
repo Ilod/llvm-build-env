@@ -17,9 +17,9 @@
         Branch                          ilod.org
         [Binary]
             [File]
-                {Platform} win32
-                    Url                 http://ilod.org/python-3.5.2-x64.zip
                 {Platform} win64
+                    Url                 http://ilod.org/python-3.5.2-x64.zip
+                {Platform} win32
                     Url                 http://ilod.org/python-3.5.2-x86.zip
                     
 [Tool]
