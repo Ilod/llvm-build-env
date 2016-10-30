@@ -4,6 +4,10 @@
     VersionCheckExecutable              cmake
     VersionCheckArguments               --version
     VersionCheckRegex                   ^cmake version ([0-9]+(\.[0-9]+)*)(-.*)?$
+    [Build]
+        Command                         cmake-bootstrap
+    [Build]
+        Command                         make-tool-build
     [Retrieval]
         Name                            path
         [Path]
@@ -13,21 +17,35 @@
         Branch                          cmake.org
         [Binary]
             [File]
-                {Win32}
+                {Platform} win-x86
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-win32-x86.zip
                     FolderToExtract     cmake-3.6.2-win32-x86/bin
-                {Win64}
+                {Platform} win-x64
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-win64-x64.zip
                     FolderToExtract     cmake-3.6.2-win64-x64/bin
-                {Mac}
+                {OS} mac
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Darwin-x86_64.tar.gz
                     FolderToExtract     cmake-3.6.2-Darwin-x86_64/bin
-                {Linux32}
+                {Platform} linux-x86
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Linux-i386.tar.gz
                     FolderToExtract     cmake-3.6.2-Linux-i386/bin
-                {Linux64}
+                {Platform} linux-x64
                     Url                 https://cmake.org/files/v3.6/cmake-3.6.2-Linux-x86_64.tar.gz
                     FolderToExtract     cmake-3.6.2-Linux-x86_64/bin
+    {OS} linux
+        [Retrieval]
+            Name                        official-source
+            Version                     3.6.2
+            Branch                      cmake.org
+            [Source]
+                BuildBinarySubFolder        bin
+                [Command]
+                    Command             download-archive
+                    [Arguments]
+                        Url                 https://cmake.org/files/v3.6/cmake-3.6.2.tar.gz
+                        Format              Tgz
+                        Dest                {SourcePath}
+                        FolderToUncompress  cmake-3.6.2
 [Tool]
     Name                                cmake
     Repo                                cmake
@@ -84,3 +102,15 @@
         [Arguments]
             Configuration               Release
             CmakeBuildPath              {BuildPath}
+
+{OS} Linux
+[Command]
+    Name                                cmake-bootstrap
+    [Invoke]
+        BuiltIn                         pushd
+        [Arguments]
+            Path                        {SourcePath}
+    [Invoke]
+        CommandLineExecutable           bootstrap
+    [Invoke]
+        BuiltIn                         popd

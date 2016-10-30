@@ -13,22 +13,37 @@
         Branch                          swig.org
         [Binary]
             [File]
-                {Win32}
+                {OS} windows
                     Url                 http://downloads.sourceforge.net/project/swig/swigwin/swigwin-3.0.10/swigwin-3.0.10.zip
                     FolderToExtract     swigwin-3.0.10
-                {Win64}
-                    Url                 http://downloads.sourceforge.net/project/swig/swigwin/swigwin-3.0.10/swigwin-3.0.10.zip
-                    FolderToExtract     swigwin-3.0.10
+    {OS} linux
+        [Build]
+            Command                     make-tool-build
+        [Retrieval]
+            Name                        official-source
+            Version                     3.0.10
+            Branch                      swig.org
+            [Source]
+                BuildBinarySubFolder        bin
+                [Command]
+                    Command             mkdir
+                    [Arguments]
+                        Path            {SourcePath}
+                [Command]
+                    Command             download-archive
+                    [Arguments]
+                        Url             http://prdownloads.sourceforge.net/swig/swig-3.0.10.tar.gz
+                        Dest            {SourcePath}
+                        CreateDest      true
+                        Format          Tgz
+                        FolderToUncompress  swig-3.0.10
     [Retrieval]
         Name                            ilod-mirror
         Version                         3.0.10
         Branch                          ilod.org
         [Binary]
             [File]
-                {Win32}
-                    Url                 http://ilod.org/swigwin-3.0.10.zip
-                    FolderToExtract     swigwin-3.0.10
-                {Win64}
+                {OS} windows
                     Url                 http://ilod.org/swigwin-3.0.10.zip
                     FolderToExtract     swigwin-3.0.10
                     

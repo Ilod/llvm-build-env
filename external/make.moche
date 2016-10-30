@@ -1,0 +1,76 @@
+[Repo]
+    Name                                make
+    VersionMin                          4.0
+    VersionCheckExecutable              make
+    VersionCheckArguments               --version
+    VersionCheckRegex                   ^GNU Make ([0-9]+(\.[0-9]+)*)(-.*)?$
+    [Retrieval]
+        Name                            path
+        [Path]
+
+[Tool]
+    Name                                make
+    Repo                                make
+    Executable                          make
+
+[Command]
+    Name                                make-configure
+    [Invoke]
+        BuiltIn                         pushd
+        [Arguments]
+            Path                        {MakeSourcePath}
+            MakeSourcePath              {SourcePath}
+    [Invoke]
+        CommandLineExecutable           configure
+        CommandLineArguments            --prefix="{MakeInstallPath}" {Arguments}
+        [Arguments]
+            MakeSourcePath              {SourcePath}
+            MakeInstallPath             {BinaryPath}
+            Arguments
+    [Invoke]
+        BuiltIn                         popd
+        
+[Command]
+    Name                                make-build
+    Tool                                make
+    [Invoke]
+        BuiltIn                         pushd
+        [Arguments]
+            Path                        {MakeSourcePath}
+            MakeSourcePath              {SourcePath}
+    [Invoke]
+    [Invoke]
+        BuiltIn                         popd
+        
+[Command]
+    Name                                make-install
+    Tool                                make
+    [Invoke]
+        BuiltIn                         pushd
+        [Arguments]
+            Path                        {MakeSourcePath}
+            MakeSourcePath              {SourcePath}
+    [Invoke]
+        CommandLineArguments            install
+    [Invoke]
+        BuiltIn                         popd
+
+[Command]
+    Name                                make-tool-build
+    Tool                                make
+    [Invoke]
+        BuiltIn                         pushd
+        [Arguments]
+            Path                        {MakeSourcePath}
+            MakeSourcePath              {SourcePath}
+    [Invoke]
+        CommandLineExecutable           configure
+        CommandLineArguments            --prefix="{MakeBinaryPath}" {Arguments}
+        [Arguments]
+            MakeBinaryPath              {BinaryPath}
+            Arguments
+    [Invoke]
+    [Invoke]
+        CommandLineArguments            install
+    [Invoke]
+        BuiltIn                         popd
