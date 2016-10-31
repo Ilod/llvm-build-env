@@ -1,7 +1,9 @@
 [Repo]
     Name                                python3
     VersionMin                          3.4.0
-    VersionCheckExecutable              python
+    VersionCheckExecutable          python
+    {OS} linux
+        VersionCheckExecutable          python3
     VersionCheckArguments               --version
     VersionCheckRegex                   ^Python ([0-9]+(\.[0-9]+)*)$
     [Retrieval]
@@ -26,3 +28,5 @@
     Name                                python3
     Repo                                python3
     Executable                          python
+    {OS} linux
+        Executable                      python3
