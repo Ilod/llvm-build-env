@@ -62,7 +62,7 @@
             CmakeBuildPath              {BuildPath}
             Create                      true
     [Invoke]
-        CommandLineArguments            "{CmakeSourcePath}" {if {CmakeGenerator} -G "{CmakeGenerator}"} {if {Is64Bits} {if not {CmakeGenerator} -DCMAKE_GENERATOR_PLATFORM=x64} } -DCMAKE_BUILD_TYPE="{Configuration}" {if {CmakeCompiler} -DCMAKE_C_COMPILER="{CmakeCompiler}" -DCMAKE_CXX_COMPILER="{CmakeCompiler}" -DCMAKE_ASM_COMPILER="{CmakeCompiler}"} {Arguments}
+        CommandLineArguments            "{CmakeSourcePath}" {if {CmakeGenerator} -G "{CmakeGenerator}"} {if {Is64Bits} {if {IsWindows} {if not {CmakeGenerator} -DCMAKE_GENERATOR_PLATFORM=x64} } } -DCMAKE_BUILD_TYPE="{Configuration}" {if {CmakeCompiler} -DCMAKE_C_COMPILER="{CmakeCompiler}" -DCMAKE_CXX_COMPILER="{CmakeCompiler}" -DCMAKE_ASM_COMPILER="{CmakeCompiler}"} {Arguments}
         [Arguments]
             Configuration               Release
             CmakeSourcePath             {SourcePath}
@@ -90,7 +90,7 @@
             Create                      true
     [Invoke]
         Condition                       Initial
-        CommandLineArguments            "{CmakeSourcePath}" {if {CmakeGenerator} -G "{CmakeGenerator}"} {if {Is64Bits} {if not {CmakeGenerator} -DCMAKE_GENERATOR_PLATFORM=x64} } -DCMAKE_BUILD_TYPE="{Configuration}" -DCMAKE_INSTALL_PREFIX="{CmakeBinaryPath}" {if {CmakeCompiler} -DCMAKE_C_COMPILER="{CmakeCompiler}" -DCMAKE_CXX_COMPILER="{CmakeCompiler}" -DCMAKE_ASM_COMPILER="{CmakeCompiler}"} {Arguments}
+        CommandLineArguments            "{CmakeSourcePath}" {if {CmakeGenerator} -G "{CmakeGenerator}"} {if {Is64Bits} {if {IsWindows} {if not {CmakeGenerator} -DCMAKE_GENERATOR_PLATFORM=x64} } } -DCMAKE_BUILD_TYPE="{Configuration}" -DCMAKE_INSTALL_PREFIX="{CmakeBinaryPath}" {if {CmakeCompiler} -DCMAKE_C_COMPILER="{CmakeCompiler}" -DCMAKE_CXX_COMPILER="{CmakeCompiler}" -DCMAKE_ASM_COMPILER="{CmakeCompiler}"} {Arguments}
         [Arguments]
             Configuration               Release
             CmakeBinaryPath             {BinaryPath}
