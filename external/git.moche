@@ -1,6 +1,6 @@
 [Repo]
     Name                                git
-    VersionMin                          2.1.0
+    VersionMin                          1.8.0
     VersionCheckExecutable              git
     VersionCheckArguments               --version
     VersionCheckRegex                   ^git version ([0-9]+(\.[0-9]+)*).*$
