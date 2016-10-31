@@ -1,6 +1,6 @@
 [Repo]
     Name                                make
-    VersionMin                          4.0
+    VersionMin                          3.82
     VersionCheckExecutable              make
     VersionCheckArguments               --version
     VersionCheckRegex                   ^GNU Make ([0-9]+(\.[0-9]+)*)(-.*)?$
